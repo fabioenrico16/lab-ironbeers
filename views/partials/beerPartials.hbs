@@ -1,0 +1,111 @@
+<div class="row card-item" style="min-height: 10px;">
+  <div class="col-sm-1 offset-md-1">
+    <img style="width:100%; padding-top:10px;"  src="{{this.image_url}}" alt="Card image cap">
+  </div>
+  <div class="col-sm-9">
+    <div class="card-body">
+      
+        <h2 class="card-title"><a href="/a-beer/{{this.id}}/">{{this.name}}</a></h2>
+        <h5 class="card-title">{{this.tagline}}</h5>
+        <p class="card-text">{{this.description}}</p>
+
+        {{#if complete}}
+          <div class="row">
+            <div class="col-sm-4"><b>ABV : </b></div>
+            <div class="col-sm-2">{{this.abv}}</div>
+            <div class="col-sm-4"><b>IBU : </b></div>
+            <div class="col-sm-2">{{this.ibu}}</div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4"><b>Target FG : </b></div>
+            <div class="col-sm-2">{{this.target_fg}}</div>  
+            <div class="col-sm-4"><b>Target OG : </b></div>
+            <div class="col-sm-2">{{this.target_og}}</div>  
+          </div>
+          <div class="row">
+            <div class="col-sm-4"><b>EBC : </b></div>
+            <div class="col-sm-2">{{this.ebc}}</div>
+            <div class="col-sm-4"><b>SRM : </b></div>
+            <div class="col-sm-2">{{this.srm}}</div>  
+          </div>
+          <div class="row">
+            <div class="col-sm-4"><b>PH : </b></div>
+            <div class="col-sm-2">{{this.ph}}</div>  
+            <div class="col-sm-4"><b>Attenuation Level : </b></div>
+            <div class="col-sm-2">{{this.attenuation_level}}</div>  
+          </div>
+          <div class="row">
+            <div class="col-sm-4"><b>Volume : </b></div>
+            <div class="col-sm-2">{{this.volume.value}} {{this.volume.unit}}</div>  
+            <div class="col-sm-4"><b>Boil Volume : </b></div>
+            <div class="col-sm-2">{{this.boil_volume.value}} {{this.boil_volume.unit}}</div>  
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-sm-12">
+              <p class="card-text" ><b>Method : </b></p>    
+            </div>
+            <div class="offset-md-2">
+              <p><i>Mash Temp : </i></p>    
+              <ul>
+                {{#each this.method.mash_temp}}
+                  <li>{{this.temp.value}}° {{this.temp.unit}}</li>
+                {{/each}}
+              </ul>
+              <br>
+              <p><i>Fermentation : </i></p>
+              <ul>
+                 <li>{{this.method.fermentation.temp.value}}° {{this.method.fermentation.temp.unit}}</li>
+              </ul>
+              <p><i>Twist : </i></p>
+              <ul>
+                <li>{{this.method.twist}} </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-12">
+              <p class="card-text" ><b>Ingredients : </b></p>    
+            </div>
+            <div class="offset-md-2">
+              <p><i>Malt : </i></p>    
+              <ul>
+                {{#each this.ingredients.malt}}
+                  <li>{{this.name}} ({{this.amount.value}} {{this.amount.unit}})</li>
+                {{/each}}
+              </ul>
+              <br>
+              <p><i>Hops : </i></p>
+              <ul>
+                {{#each this.ingredients.hops}}
+                  <li>{{this.name}} ({{this.amount.value}} {{this.amount.unit}})</li>
+                {{/each}}
+              </ul>
+              <p><i>Yeast : </i></p>
+              <ul>
+                <li>{{this.ingredients.yeast}} </li>
+              </ul>
+            </div>
+          </div>
+        {{/if}}
+
+
+
+        {{#if random}}
+        <p><b>Food Pairing</b></p>
+        <ul>
+          {{#each this.food_pairing}}
+          <li>{{this}}</li>
+          {{/each}}
+        </ul>
+        <p class="card-text"><b>Brewers Tip : </b>{{this.brewers_tips}}</p>    
+        {{/if}}
+
+        
+    </div>
+  </div>
+</div>
+<hr>
+
+
